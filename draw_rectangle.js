@@ -28,6 +28,7 @@ const createLineGenerator = function(leftChar, middleChar, rightChar) {
 };
 
 const filledLineGenerator = createLineGenerator('*', '*', '*');
+const dashedLineGenerator = createLineGenerator('-', '-', '-');
 const hollowLineGenerator = createLineGenerator('*', ' ', '*');
 
 const createRectangle = function(
@@ -73,12 +74,31 @@ const createHollowRectangle = function(width, height) {
   );
 };
 
+const createAlternatingRectangle = function(width,height) {
+  let lineSeparator = '';
+  let rectangle ='';
+  let generators = [ filledLineGenerator, dashedLineGenerator ];
+  if (height < 1) {
+    return "";
+  }
+  for (let row = 0; row < height; row++) {
+    let generator = generators[row%2];
+    let line = generator(width);
+    rectangle = joinLines(rectangle, line, lineSeparator);
+    lineSeparator = '\n';
+  }
+  return rectangle;
+}
+
 const createRectangleOfType = function(rectangleType, width, height) {
   if (rectangleType == 'filled') {
     return createFilledRectangle(width, height);
   }
   if (rectangleType == 'hollow') {
     return createHollowRectangle(width, height);
+  }
+  if (rectangleType == 'alternating') {
+    return createAlternatingRectangle(width, height);
   }
   return '';
 };
