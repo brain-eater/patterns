@@ -1,0 +1,74 @@
+The goal of this assignment is to provide the user with a utility that will generate patterns.
+The patterns are listed below. The program takes 3 inputs:
+node rectanglePattern.js [filled|empty|alternating] width height
+The first argument specifies the kind of rectangle the user wants. 
+
+The width and the height argument are numbers that specify the width and height of the rectangle.
+
+
+
+The minimum width and height is 1.
+
+
+
+The patterns are listed below.
+
+
+
+Filled Rectangle 
+
+----------------
+
+
+
+node rectanglePattern.js filled 20 7
+
+
+
+********************
+********************
+********************
+********************
+********************
+********************
+********************
+
+
+
+Empty Rectangle
+
+---------------
+
+
+
+node rectanglePattern.js empty 20 7
+
+
+
+********************
+*                  *
+*                  *
+*                  *
+*                  *
+*                  *
+********************
+
+
+
+
+Alternating Rectangle
+
+---------------------
+
+
+node rectanglePattern.js alternating 20 3
+
+
+
+************************
+
+------------------------
+
+************************
+
+
