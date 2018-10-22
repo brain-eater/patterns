@@ -92,7 +92,7 @@ const createAlternatingRectangle = function(width,height) {
   return rectangle;
 }
 
-const createRectangleOfType = function(rectangleType, width, height) {
+const generateRectangle = function(rectangleType, width, height) {
   if (rectangleType == 'filled') {
     return createFilledRectangle(width, height);
   }
@@ -105,11 +105,8 @@ const createRectangleOfType = function(rectangleType, width, height) {
   return '';
 };
 
-const drawRectangle = function(rectangleType,width,height) {
-  const rectangle = createRectangleOfType(rectangleType, width, height);
-  console.log(rectangle);
-};
 
+exports.generateRectangle = generateRectangle;
 
 //code for drawing triangle
 const rightJustifyLine = function(text, width) {
@@ -125,7 +122,7 @@ const centerJustifyLine = function(text, width) {
 };
 
 const leftJustifyLine = function(text, width) {
-  
+
   return text;
 };
 
@@ -149,7 +146,7 @@ const createRightTriangle = function(height) {
   return createTriangle(height, rightJustifyLine);
 };
 
-const createTriangleOfType = function(triangleType, height) {
+const generateTriangle = function(triangleType, height) {
   if (triangleType == 'left') {
     return createLeftTriangle(height);
   }
@@ -159,11 +156,8 @@ const createTriangleOfType = function(triangleType, height) {
   return '';
 };
 
-const drawTriangle = function(triangleType,height) {
-  const triangle = createTriangleOfType(triangleType, height);
-  console.log(triangle);
-};
 
+exports.generateTriangle = generateTriangle;
 
 //function for drawDiamonds
 const topHalfGenerator = createLineGenerator('/', ' ', '\\');
@@ -238,7 +232,7 @@ const createAngledDiamond = function(height) {
   );
 };
 
-const createDiamondOfType = function(diamondType, height) {
+const generateDiamond = function(diamondType, height) {
   if (diamondType == 'filled') {
     return createFilledDiamond(height);
   }
@@ -251,11 +245,7 @@ const createDiamondOfType = function(diamondType, height) {
   return '';
 };
 
-const drawDiamond = function(diamondType,height) {
-  const diamond = createDiamondOfType(diamondType, height);
-  console.log(diamond);
-};
-
+exports.generateDiamond = generateDiamond;
 
 //main for lib
 const main = function(){
@@ -264,12 +254,11 @@ const main = function(){
   height = process.argv[4];
   width = process.argv[5];
   if(shape == "triangle"){
-    drawTriangle(type,height);
+    console.log(drawTriangle(type,height));
   }else if(shape == "rectangle"){
-    drawRectangle(type,height,width);
+    console.log(drawRectangle(type,height,width));
   }else{
-    drawDiamond(type,height);
+    console.log(drawDiamond(type,height));
   }
 }
 
-main();
