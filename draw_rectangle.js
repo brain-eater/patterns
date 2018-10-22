@@ -1,4 +1,4 @@
-let {generateRectangle} = require("./patternsLib.js");
+let {generateRectangle} = require("./src/patternsLib.js");
 const main = function() {
   const rectangleType = process.argv[2];
   const width = +process.argv[3];

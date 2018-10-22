@@ -1,4 +1,4 @@
-let {generateTriangle} = require("./patternsLib.js");
+let {generateTriangle} = require("./src/patternsLib.js");
 const main = function() {
   const triangleType = process.argv[2];
   const height = +process.argv[3];
