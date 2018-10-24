@@ -85,4 +85,3 @@ const main = function(){
     console.log(generateDiamond(type,height));
   }
 }
-main();
