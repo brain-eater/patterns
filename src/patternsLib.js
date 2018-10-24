@@ -71,17 +71,3 @@ const generateDiamond = function(diamondType, height) {
 
 exports.generateDiamond = generateDiamond;
 
-//main for lib
-const main = function(){
-  shape = process.argv[2];
-  type = process.argv[3];
-  height = process.argv[4];
-  width = process.argv[5];
-  if(shape == "triangle"){
-    console.log(generateTriangle(type,height));
-  }else if(shape == "rectangle"){
-    console.log(generateRectangle(type,height,width));
-  }else{
-    console.log(generateDiamond(type,height));
-  }
-}

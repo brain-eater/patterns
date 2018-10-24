@@ -102,4 +102,4 @@ let {createAngledDiamond} = lib;
 assert.deepEqual(createAngledDiamond(5),'  *  \n / \\ \n*   *\n \\ / \n  *  ');
 
 
-
+console.log("Tested PatternsUtil.js");

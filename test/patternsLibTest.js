@@ -17,3 +17,5 @@ assert.deepEqual(generateDiamond("angled",5),'  *  \n / \\ \n*   *\n \\ / \n  * 
 assert.deepEqual(generateRectangle("filled",5,5),"*****\n*****\n*****\n*****\n*****");
 assert.deepEqual(generateRectangle("hollow",5,5),'*****\n*   *\n*   *\n*   *\n*****');
 assert.deepEqual(generateRectangle("alternating",5,5),'*****\n-----\n*****\n-----\n*****');
+
+console.log("Tested patternsLib.js");

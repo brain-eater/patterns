@@ -1,0 +1,3 @@
+run_test.sh createRectangle.js app_test_data/createRectangle_test_input app_test_data/createRectangle_test_output
+run_test.sh createTriangle.js app_test_data/createTriangle_test_input app_test_data/createTriangle_test_output
+run_test.sh createDiamond.js app_test_data/createDiamond_test_input app_test_data/createDiamond_test_output
