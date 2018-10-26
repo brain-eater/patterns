@@ -1,55 +1,52 @@
 let lib = require("./patternsUtil.js");
-let {repeatCharacter} = lib;
-let {createLine} = lib;
-let {joinLines} = lib;
-let {createLineGenerator} = lib;
-let {filledLineGenerator} = lib;
-let {dashedLineGenerator} = lib;
-let {hollowLineGenerator} = lib;
-let {createRectangle} = lib;
-let {createFilledRectangle} = lib;
-let {createHollowRectangle} = lib;
-let {createAlternatingRectangle} = lib;
-let {rightJustifyLine} = lib;
-let {centerJustifyLine} = lib;
-let {leftJustifyLine} = lib;
-let {createTriangle} = lib;
-let {createLeftTriangle} = lib;
-let {createRightTriangle} = lib;
-let {topHalfGenerator} = lib;
-let {bottomHalfGenerator} = lib;
-let {assembleDiamond} = lib;
-let {generateJustifiedLine} = lib;
-let {createDiamond} = lib;
-let {createFilledDiamond} = lib;
-let {createHollowDiamond} = lib;
-let {createAngledDiamond} = lib;
+let {repeatCharacter,
+createLine,
+joinLines,
+createLineGenerator,
+filledLineGenerator,
+dashedLineGenerator,
+hollowLineGenerator,
+createRectangle,
+createFilledRectangle,
+createHollowRectangle,
+createAlternatingRectangle,
+rightJustifyLine,
+centerJustifyLine,
+leftJustifyLine,
+createTriangle,
+createLeftTriangle,
+createRightTriangle,
+topHalfGenerator,
+bottomHalfGenerator,
+assembleDiamond,
+generateJustifiedLine,
+createDiamond,
+createFilledDiamond,
+createHollowDiamond,
+createAngledDiamond}
+ = lib;
 
 const generateRectangle = function(rectangleType, width, height) {
-  if (rectangleType == 'filled') {
-    return createFilledRectangle(width, height);
-  }
-  if (rectangleType == 'hollow') {
-    return createHollowRectangle(width, height);
-  }
-  if (rectangleType == 'alternating') {
-    return createAlternatingRectangle(width, height);
-  }
-  return '';
-};
+  let rectangleFunctions = {
+    filled : createFilledRectangle,
+    hollow : createHollowRectangle,
+    alternating: createAlternatingRectangle
+  }; 
+  let createRectangle =  rectangleFunctions[rectangleType];
+  return createRectangle(width,height);
+ };
 
 
 exports.generateRectangle = generateRectangle;
 
 //code for drawing triangle
 const generateTriangle = function(triangleType, height) {
-  if (triangleType == 'left') {
-    return createLeftTriangle(height);
+  let triangleFunctions = {
+    left : createLeftTriangle,
+    right : createRightTriangle,
   }
-  if (triangleType == 'right') {
-    return createRightTriangle(height);
-  }
-  return '';
+  let createTriangle = triangleFunctions[triangleType];
+  return createTriangle(height);
 };
 
 
@@ -57,16 +54,14 @@ exports.generateTriangle = generateTriangle;
 
 //function for drawDiamonds
 const generateDiamond = function(diamondType, height) {
-  if (diamondType == 'filled') {
-    return createFilledDiamond(height);
-  }
-  if (diamondType == 'hollow') {
-    return createHollowDiamond(height);
-  }
-  if (diamondType == 'angled') {
-    return createAngledDiamond(height);
-  }
-  return '';
+  let diamondFunctions = {
+    filled : createFilledDiamond,
+    hollow : createHollowDiamond,
+    angled: createAngledDiamond
+  }; 
+  let createDiamond =  diamondFunctions[diamondType];
+  return createDiamond(height);
+ 
 };
 
 exports.generateDiamond = generateDiamond;

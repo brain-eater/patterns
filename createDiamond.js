@@ -1,8 +1,8 @@
+let {getArguments} = require("./src/patternsUtil.js");
 let {generateDiamond} = require("./src/patternsLib.js");
 const main = function() {
-  const diamondType = process.argv[2];
-  const height = +process.argv[3];
-  let  diamond = generateDiamond(diamondType, height);
+ args =  getArguments();
+ let  diamond = generateDiamond(args[0], args[1]);
   console.log(diamond);
 };
 

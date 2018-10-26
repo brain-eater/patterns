@@ -1,9 +1,8 @@
+let {getArguments} = require("./src/patternsUtil.js");
 let {generateRectangle} = require("./src/patternsLib.js");
 const main = function() {
-  const rectangleType = process.argv[2];
-  const width = +process.argv[3];
-  const height = +process.argv[4];
-  const rectangle = generateRectangle(rectangleType, width, height);
+  args = getArguments();
+  const rectangle = generateRectangle(args[0], args[1], args[2]);
   console.log(rectangle);
 };
 

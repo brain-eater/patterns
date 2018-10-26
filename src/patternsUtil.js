@@ -254,3 +254,9 @@ const createAngledDiamond = function(height) {
 };
 
 exports.createAngledDiamond = createAngledDiamond;
+
+const getArguments = function(){
+  return process.argv.slice(2);
+}
+
+exports.getArguments = getArguments;
