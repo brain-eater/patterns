@@ -95,7 +95,7 @@ assert.deepEqual(createFilledDiamond(5),'  *  \n *** \n*****\n *** \n  *  ');
 
 //to test createHollowDiamond
 let {createHollowDiamond} = lib;
-assert.deepEqual(createHollowDiamond(3),' * \n\n* *\n\n * ');
+assert.deepEqual(createHollowDiamond(3),' * \n* *\n * ');
 
 //to test createAngledDiamond
 let {createAngledDiamond} = lib;

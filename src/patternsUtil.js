@@ -20,6 +20,9 @@ const createLine = function(width, leftChar, middleChar, rightChar) {
 exports.createLine = createLine;
 
 const joinLines = function(previous, lineToJoin, lineSeparator) {
+  if(lineToJoin == ""){
+    return previous;
+  }
   return previous + lineSeparator + lineToJoin;
 };
 
@@ -204,6 +207,10 @@ const createDiamond = function(
   let topHalf = '';
   let bottomHalf = '';
   let justifiedTip = generateJustifiedLine(tipGenerator, 1, height);
+
+  if(height == 1 ){
+  return "*";
+  }
 
   for (let row = 3; row < height; row += 2) {
     let justifiedTop = generateJustifiedLine(topGenerator, row, height);
