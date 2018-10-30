@@ -267,3 +267,20 @@ const getArguments = function(){
 }
 
 exports.getArguments = getArguments;
+
+const getValue = function(object,key){
+  if(object[key] == undefined){
+    return object.default;
+  }
+  return object[key];
+}
+
+exports.getValue = getValue;
+
+const flip = undefined;
+
+exports.flip = flip;
+
+const mirror = undefined;
+
+exports.mirror = mirror;

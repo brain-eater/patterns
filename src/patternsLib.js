@@ -23,7 +23,11 @@ generateJustifiedLine,
 createDiamond,
 createFilledDiamond,
 createHollowDiamond,
-createAngledDiamond}
+createAngledDiamond,
+getValue,
+flip,
+mirror,
+identity}
  = lib;
 
 const generateRectangle = function(rectangleType, width, height) {
@@ -65,4 +69,42 @@ const generateDiamond = function(diamondType, height) {
 };
 
 exports.generateDiamond = generateDiamond;
+
+const classifyArgs = function(args){
+  let shapes = {};
+  let index = 0;
+  let shapesList = {
+    filled_rectangle : createFilledRectangle ,
+    left_triangle : createLeftTriangle,
+    right_triangle : createRightTriangle,
+    hollow_rectangle : createHollowRectangle,
+    alternating_rectangle : createAlternatingRectangle,
+    filled_diamond : createFilledDiamond,
+    hollow_diamond : createHollowDiamond,
+    angled_diamond : createAngledDiamond
+  }
+  let modifiers = { 
+    flip : { modifierFunc : flip, indexChange:1 },
+    mirror : { modifierFunc : mirror , indexChange:1 },
+    default:{ modifierFunc : identity , indexChange:0 }
+  } 
+  let modifier = getValue(modifiers,args[index]);
+  let {modifierFunc} = modifier;
+  index = index + modifier.indexChange;
+  for(let shapeNo = 1;index < args.length;shapeNo++){
+    shapeKey = "shape" + shapeNo;
+    let shapeName = args[index];
+    shapes[shapeKey] ={};
+    if(shapeName.match(/rectangle/) != null){
+      shapes[shapeKey].width =args[++index]
+    }
+    shapes[shapeKey].func = shapesList[shapeName];
+    shapes[shapeKey].height = args[++index];
+    index++;
+  }
+  return {shapes,modifierFunc};
+}
+
+exports.classifyArgs = classifyArgs;  
+
 
