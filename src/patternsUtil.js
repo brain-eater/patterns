@@ -277,10 +277,25 @@ const getValue = function(object,key){
 
 exports.getValue = getValue;
 
-const flip = undefined;
+const reverse = function(text){
+  return text.split("").reverse().join("");
+}
 
-exports.flip = flip;
+const flip = function(shape){
+  return shape.map(reverse)
+}
 
-const mirror = undefined;
+exports.flip = flip;  
 
-exports.mirror = mirror;
+const mirror = function(shape){
+  return shape.reverse();
+}
+
+exports.mirror = mirror;  
+
+const identity = function(constant){
+  return constant;
+}
+
+exports.identity = identity;  
+

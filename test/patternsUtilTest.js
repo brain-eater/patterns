@@ -101,5 +101,15 @@ assert.deepEqual(createHollowDiamond(3),' * \n* *\n * ');
 let {createAngledDiamond} = lib;
 assert.deepEqual(createAngledDiamond(5),'  *  \n / \\ \n*   *\n \\ / \n  *  ');
 
+//to test flip
+let {flip} = lib;
+assert.deepEqual(flip(["hello"]),[ 'olleh' ]);
+assert.deepEqual(flip(["hello","bye"]),[ 'olleh',"eyb" ]);
 
+//to test mirror
+let {mirror} = lib;
+assert.deepEqual(mirror([1,2,3,4,5]),[5,4,3,2,1]);
+
+let {identity} = lib;
 console.log("Tested PatternsUtil.js");
+
