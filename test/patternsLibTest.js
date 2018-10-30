@@ -5,7 +5,7 @@ let {generateDiamond} = lib;
 let {generateRectangle} = lib;
 
 //test generateRectangle
-assert.deepEqual(generateTriangle("left",5),"*\n**\n***\n****\n*****");
+assert.deepEqual(generateTriangle("left",5),'*    \n**   \n***  \n**** \n*****');
 assert.deepEqual(generateTriangle("right",5),"    *\n   **\n  ***\n ****\n*****");
 
 //test generateDiamond

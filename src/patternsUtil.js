@@ -136,8 +136,7 @@ const centerJustifyLine = function(text, width) {
 exports.centerJustifyLine = centerJustifyLine;
 
 const leftJustifyLine = function(text, width) {
-
-  return text;
+  return text + repeatCharacter(" ",width-text.length);
 };
 
 exports.leftJustifyLine = leftJustifyLine;

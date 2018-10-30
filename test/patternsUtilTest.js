@@ -63,11 +63,11 @@ assert.deepEqual(centerJustifyLine("Tilak",10),'   Tilak   ');
 
 //to test leftJustifyLine
 let {leftJustifyLine} = lib;
-assert.deepEqual(leftJustifyLine("Tilak",8),'Tilak');
+assert.deepEqual(leftJustifyLine("Tilak",8),'Tilak   ');
 
 //to test createLeftTriangle
 let {createLeftTriangle} = lib;
-assert.deepEqual(createLeftTriangle(3),'*\n**\n***');
+assert.deepEqual(createLeftTriangle(3),'*  \n** \n***');
 
 //to test createRightTriangle
 let {createRightTriangle} = lib;
