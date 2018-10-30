@@ -24,6 +24,7 @@ createDiamond,
 createFilledDiamond,
 createHollowDiamond,
 createAngledDiamond,
+joinShapes,
 getValue,
 flip,
 mirror,
@@ -107,4 +108,20 @@ const classifyArgs = function(args){
 
 exports.classifyArgs = classifyArgs;  
 
+const generatePattern = function(patternDetails,modifier){
+  let shapes = [];
+  for(let shapeDetails of Object.values(patternDetails)){
+    let {func,height,width} = shapeDetails; 
+    let shape = func(height); 
+    if(width != undefined){
+      shape = func(width,height);
+    }
+    let modifiedShape = modifier(shape.split("\n"));
+    shapes.push(modifiedShape);
+  }
+  let joinedShape = shapes.reduce(joinShapes);
+  return joinedShape.join("\n");
+}
 
+exports.generatePattern = generatePattern;  
+  

@@ -9,6 +9,9 @@ let {classifyArgs,
 const main = function(){
   let args = getArguments();
   let classifiedArgs = classifyArgs(args);
-  console.log(classifiedArgs);
+  let shapes = classifiedArgs.shapes;
+  let modifier = classifiedArgs.modifierFunc;
+  let pattern = generatePattern(shapes,modifier);
+  console.log(pattern);
 }
 main();

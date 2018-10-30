@@ -299,3 +299,35 @@ const identity = function(constant){
 
 exports.identity = identity;  
 
+const getSmallerArr = function(arr1,arr2){
+  let smallerArr =  arr1;
+  if(arr1.length > arr2.length){
+    smallerArr = arr2;
+  }
+  return smallerArr;
+}
+
+const getLargerArr = function(arr1,arr2){
+  let largerArr =  arr1;
+  if(arr1.length < arr2.length){
+    largerArr = arr2;
+  }
+  return largerArr;
+}
+
+const joinShapes = function(shape1,shape2){
+  let smallerArr = getSmallerArr(shape1,shape2);
+  let largerArr = getLargerArr(shape1,shape2);
+  let joinedShape = [];
+  for(let index = 0; index < largerArr.length; index++){ 
+    if(smallerArr[index] == undefined){
+      smallerArr[index] = repeatCharacter(" ",smallerArr[0].length);
+    }
+    joinedShape[index] = joinLines(shape1[index],shape2[index]," ");
+  }
+  return joinedShape;   
+}
+
+exports.joinShapes = joinShapes;  
+
+
